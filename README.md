@@ -101,7 +101,7 @@ Example:
 <br />React 18.2
 </td>
 <td align="center" width="25%">
-<img src="https://www.svgrepo.com/show/354113/framer.svg" width="48" height="48" alt="Framer Motion" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/framermotion/framermotion-original.svg" width="48" height="48" alt="Framer Motion" />
 <br />Framer Motion 12
 </td>
 <td align="center" width="25%">
