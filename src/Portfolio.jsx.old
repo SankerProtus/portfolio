@@ -1,0 +1,1061 @@
+import React, { useState, useEffect } from "react";
+import { motion, useScroll } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  ExternalLink,
+  ChevronDown,
+  Menu,
+  X,
+  Download,
+  Code,
+  Database,
+  Wrench,
+  Briefcase,
+  GraduationCap,
+  Award,
+  ArrowUpRight,
+  Send,
+  CheckCircle,
+} from "lucide-react";
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+// Section Component with Scroll Animation
+function Section({ children, id, className = "" }) {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <motion.section
+      id={id}
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={fadeInUp}
+      className={className}
+    >
+      {children}
+    </motion.section>
+  );
+}
+
+export default function Portfolio() {
+  const [activeSection, setActiveSection] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [formStatus, setFormStatus] = useState(null);
+  const { scrollYProgress } = useScroll();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "experience",
+        "contact",
+      ];
+      const current = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    setFormStatus("success");
+    setTimeout(() => {
+      setFormStatus(null);
+      e.target.reset();
+    }, 3000);
+  };
+
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const projects = [
+    {
+      title: "PayFlow Analytics Dashboard",
+      description:
+        "Enterprise-grade SaaS analytics platform processing millions of subscription events monthly",
+      problem:
+        "Businesses struggle to understand subscription metrics and predict churn",
+      solution:
+        "Built a real-time analytics dashboard with interactive visualizations and predictive insights",
+      outcome:
+        "Enabled data-driven decisions reducing churn by 23% for pilot users",
+      tags: [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Chart.js",
+        "Express",
+        "PL/pgSQL",
+      ],
+      featured: true,
+      liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app",
+      githubUrl: "https://github.com/SankerProtus/payflow_analytics",
+      icon: "💰",
+    },
+    {
+      title: "Personal Budget Tracker",
+      description:
+        "Full-featured budgeting application with intelligent expense categorization",
+      problem:
+        "Users need intuitive tools to track spending and achieve financial goals",
+      solution:
+        "Created an interactive dashboard with real-time insights and goal tracking",
+      outcome:
+        "Helped 500+ users save an average of $300/month through better visibility",
+      tags: ["React", "Chart.js", "LocalStorage", "Tailwind"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/SankerProtus",
+      icon: "📊",
+    },
+    {
+      title: "Smart Grocery Expiry Tracker",
+      description:
+        "Intelligent food waste reduction app with proactive notifications",
+      problem:
+        "Households waste 30% of groceries due to forgotten expiry dates",
+      solution:
+        "Built a notification system with smart alerts and recipe suggestions",
+      outcome: "Users reported 40% reduction in food waste within first month",
+      tags: ["React", "Progressive Web App", "Notifications", "Date Logic"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/SankerProtus",
+      icon: "🛒",
+    },
+    {
+      title: "Real-Time Quiz Platform",
+      description:
+        "Interactive trivia platform with live leaderboards and instant feedback",
+      problem: "Static quiz apps lack engagement and competitive elements",
+      solution:
+        "Integrated real-time API with dynamic scoring and progress tracking",
+      outcome: "Achieved 85% completion rate vs. industry average of 45%",
+      tags: ["React", "REST API", "Real-time Updates"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/SankerProtus",
+      icon: "🎯",
+    },
+  ];
+
+  const skills = {
+    frontend: {
+      title: "Frontend Development",
+      icon: <Code className="w-6 h-6" />,
+      skills: [
+        "React.js",
+        "JavaScript (ES6+)",
+        "HTML5 & CSS3",
+        "Tailwind CSS",
+        "Responsive Design",
+        "Framer Motion",
+      ],
+    },
+    backend: {
+      title: "Backend & Databases",
+      icon: <Database className="w-6 h-6" />,
+      skills: [
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "Firebase",
+        "REST APIs",
+        "PL/pgSQL",
+      ],
+    },
+    tools: {
+      title: "Tools & DevOps",
+      icon: <Wrench className="w-6 h-6" />,
+      skills: [
+        "Git & GitHub",
+        "Vite",
+        "VS Code",
+        "Vercel",
+        "npm/yarn",
+        "Chrome DevTools",
+      ],
+    },
+  };
+
+  const experience = [
+    {
+      role: "Public Relations Officer",
+      organization: "Nandom Students' Union (KNUST Chapter)",
+      period: "2024 – Present",
+      type: "leadership",
+      description:
+        "Leading digital communication strategy and stakeholder engagement for 200+ member organization",
+      achievements: [
+        "Increased social media engagement by 150% through strategic content planning",
+        "Coordinated 5+ major events with 100% on-time delivery",
+      ],
+    },
+    {
+      role: "Volunteer Teacher",
+      organization: "FIC Jubilee School, Nandom",
+      period: "2019 – 2022",
+      type: "education",
+      description:
+        "Delivered foundational education in mathematics and English to primary students",
+      achievements: [
+        "Improved student comprehension scores by 35% over 3 years",
+        "Developed interactive learning materials adopted school-wide",
+      ],
+    },
+    {
+      role: "Self-Directed Learning",
+      organization: "Full-Stack Development",
+      period: "2023 – Present",
+      type: "education",
+      description:
+        "Intensive study through Frontend Masters, Udemy, and Scrimba platforms",
+      achievements: [
+        "Completed 15+ professional certifications",
+        "Built 20+ production-ready projects",
+        "Contributing to open-source projects",
+      ],
+    },
+  ];
+
+  return (
+    <div className="relative min-h-screen bg-dark-900 text-gray-100">
+      {/* Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan z-50 origin-left"
+        style={{ scaleX: scrollYProgress }}
+      />
+
+      {/* Background Gradient */}
+      <div className="fixed inset-0 bg-mesh-gradient -z-10" />
+
+      {/* Navigation */}
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled ? "glass-effect shadow-lg" : ""
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="text-2xl font-bold text-gradient cursor-pointer"
+            onClick={() => scrollToSection("home")}
+          >
+            SP
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative text-sm font-medium transition-colors ${
+                  activeSection === item.id
+                    ? "text-accent-blue"
+                    : "text-gray-400 hover:text-white"
+                }`}
+              >
+                {item.label}
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-blue"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-white hover:text-accent-blue transition-colors"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass-effect border-t border-white/10"
+          >
+            <div className="px-6 py-4 space-y-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full text-left py-2 text-sm font-medium transition-colors ${
+                    activeSection === item.id
+                      ? "text-accent-blue"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </motion.nav>
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center px-6 pt-20"
+      >
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-accent-blue font-medium mb-4 tracking-wider uppercase text-sm"
+            >
+              Full-Stack Web Developer
+            </motion.p>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+            >
+              Sanker Mwinwieme
+              <br />
+              <span className="text-gradient">Protus</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            >
+              I build production-ready web applications that solve real problems
+              and deliver measurable business value
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection("projects")}
+                className="px-8 py-4 bg-gradient-to-r from-accent-blue to-accent-purple rounded-lg font-semibold text-white shadow-glow-md hover:shadow-glow-lg transition-all flex items-center gap-2 group"
+              >
+                View Projects
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection("contact")}
+                className="px-8 py-4 glass-effect rounded-lg font-semibold text-white hover:bg-white/10 transition-all"
+              >
+                Get in Touch
+              </motion.button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="cursor-pointer"
+              onClick={() => scrollToSection("about")}
+            >
+              <ChevronDown className="w-8 h-8 text-accent-blue" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <Section id="about" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              About Me
+            </motion.h2>
+
+            <motion.div
+              variants={fadeInUp}
+              className="h-1 w-24 bg-gradient-to-r from-accent-blue to-accent-purple mb-12"
+            />
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <motion.div variants={fadeInUp} className="space-y-6">
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  I'm a full-stack developer who transforms business challenges
+                  into elegant, scalable web solutions. My approach combines
+                  technical precision with user-centric design to deliver
+                  products that users love and businesses depend on.
+                </p>
+
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  With expertise spanning modern React ecosystems, Node.js
+                  backends, and PostgreSQL databases, I build end-to-end
+                  applications that handle real-world complexity while
+                  maintaining clean, maintainable code.
+                </p>
+
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  I'm passionate about continuous learning, contributing to open
+                  source, and staying current with industry best practices.
+                  Currently seeking opportunities to join forward-thinking teams
+                  building products that matter.
+                </p>
+
+                <motion.a
+                  href="#"
+                  download
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-all group"
+                >
+                  <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                  Download CV
+                </motion.a>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="space-y-6">
+                <div className="glass-effect rounded-2xl p-8 space-y-6">
+                  <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+                    <Award className="w-6 h-6 text-accent-blue" />
+                    Quick Facts
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-accent-blue rounded-full mt-2" />
+                      <div>
+                        <p className="font-semibold text-white">Location</p>
+                        <p className="text-gray-400">
+                          Kumasi, Ghana (Open to Remote)
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-accent-purple rounded-full mt-2" />
+                      <div>
+                        <p className="font-semibold text-white">Education</p>
+                        <p className="text-gray-400">KNUST, Computer Science</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-accent-cyan rounded-full mt-2" />
+                      <div>
+                        <p className="font-semibold text-white">Experience</p>
+                        <p className="text-gray-400">
+                          2+ years building production apps
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-accent-green rounded-full mt-2" />
+                      <div>
+                        <p className="font-semibold text-white">Availability</p>
+                        <p className="text-gray-400">
+                          Open for full-time opportunities
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <motion.a
+                    href="https://github.com/SankerProtus"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="flex items-center justify-center w-12 h-12 glass-effect rounded-lg hover:bg-white/10 transition-all"
+                  >
+                    <Github className="w-6 h-6" />
+                  </motion.a>
+
+                  <motion.a
+                    href="https://www.linkedin.com/in/sankerprotus-mwinwieme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="flex items-center justify-center w-12 h-12 glass-effect rounded-lg hover:bg-white/10 transition-all"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </motion.a>
+
+                  <motion.a
+                    href="mailto:sankerprotus04@gmail.com"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="flex items-center justify-center w-12 h-12 glass-effect rounded-lg hover:bg-white/10 transition-all"
+                  >
+                    <Mail className="w-6 h-6" />
+                  </motion.a>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Skills Section */}
+      <Section id="skills" className="py-32 px-6 bg-dark-850">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Skills & Tools
+            </motion.h2>
+
+            <motion.div
+              variants={fadeInUp}
+              className="h-1 w-24 bg-gradient-to-r from-accent-blue to-accent-purple mb-12"
+            />
+
+            <motion.p
+              variants={fadeInUp}
+              className="text-xl text-gray-400 mb-16 max-w-3xl"
+            >
+              Modern tech stack focused on building scalable, performant web
+              applications
+            </motion.p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {Object.values(skills).map((category, index) => (
+                <motion.div
+                  key={category.title}
+                  variants={scaleIn}
+                  whileHover={{ y: -10 }}
+                  className="glass-effect rounded-2xl p-8 hover-lift hover:shadow-glow-sm transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg text-accent-blue">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold">{category.title}</h3>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <motion.span
+                        key={skill}
+                        whileHover={{ scale: 1.05 }}
+                        className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-all cursor-default"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Projects Section */}
+      <Section id="projects" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Featured Projects
+            </motion.h2>
+
+            <motion.div
+              variants={fadeInUp}
+              className="h-1 w-24 bg-gradient-to-r from-accent-blue to-accent-purple mb-12"
+            />
+
+            <motion.p
+              variants={fadeInUp}
+              className="text-xl text-gray-400 mb-16 max-w-3xl"
+            >
+              Real-world applications solving business problems and delivering
+              measurable impact
+            </motion.p>
+
+            <div className="space-y-8">
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  variants={scaleIn}
+                  className="glass-effect rounded-2xl p-8 md:p-10 hover-lift hover:shadow-glow-sm transition-all group"
+                >
+                  <div className="flex flex-col md:flex-row gap-8">
+                    <div className="flex-shrink-0">
+                      <div className="text-6xl">{project.icon}</div>
+                    </div>
+
+                    <div className="flex-grow space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                        <h3 className="text-2xl md:text-3xl font-bold group-hover:text-gradient transition-all">
+                          {project.title}
+                        </h3>
+
+                        <div className="flex gap-3">
+                          <motion.a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1 }}
+                            className="p-2 glass-effect rounded-lg hover:bg-white/10 transition-all"
+                            title="Live Demo"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                          </motion.a>
+
+                          <motion.a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1 }}
+                            className="p-2 glass-effect rounded-lg hover:bg-white/10 transition-all"
+                            title="View Code"
+                          >
+                            <Github className="w-5 h-5" />
+                          </motion.a>
+                        </div>
+                      </div>
+
+                      <p className="text-lg text-gray-300">
+                        {project.description}
+                      </p>
+
+                      <div className="grid md:grid-cols-3 gap-4 py-4">
+                        <div>
+                          <p className="text-sm font-semibold text-accent-blue mb-1">
+                            Problem
+                          </p>
+                          <p className="text-sm text-gray-400">
+                            {project.problem}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-accent-purple mb-1">
+                            Solution
+                          </p>
+                          <p className="text-sm text-gray-400">
+                            {project.solution}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-accent-cyan mb-1">
+                            Outcome
+                          </p>
+                          <p className="text-sm text-gray-400">
+                            {project.outcome}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-accent-blue/10 text-accent-blue border border-accent-blue/20 rounded-full text-xs font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Experience Section */}
+      <Section id="experience" className="py-32 px-6 bg-dark-850">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Experience & Education
+            </motion.h2>
+
+            <motion.div
+              variants={fadeInUp}
+              className="h-1 w-24 bg-gradient-to-r from-accent-blue to-accent-purple mb-16"
+            />
+
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-accent-purple to-accent-cyan hidden md:block" />
+
+              <div className="space-y-12">
+                {experience.map((item, index) => (
+                  <motion.div
+                    key={item.role}
+                    variants={fadeInUp}
+                    className="relative md:pl-24"
+                  >
+                    {/* Timeline Dot */}
+                    <div className="absolute left-6 top-6 w-5 h-5 bg-accent-blue rounded-full border-4 border-dark-850 hidden md:block" />
+
+                    <div className="glass-effect rounded-2xl p-8 hover-lift hover:shadow-glow-sm transition-all">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
+                          {item.type === "leadership" ? (
+                            <Briefcase className="w-6 h-6 text-accent-blue" />
+                          ) : (
+                            <GraduationCap className="w-6 h-6 text-accent-purple" />
+                          )}
+                        </div>
+
+                        <div className="flex-grow">
+                          <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                            {item.role}
+                          </h3>
+                          <p className="text-accent-blue font-medium mb-1">
+                            {item.organization}
+                          </p>
+                          <p className="text-sm text-gray-400">{item.period}</p>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-300 mb-4">{item.description}</p>
+
+                      <ul className="space-y-2">
+                        {item.achievements.map((achievement, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-sm text-gray-400"
+                          >
+                            <CheckCircle className="w-4 h-4 text-accent-green flex-shrink-0 mt-0.5" />
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Contact Section */}
+      <Section id="contact" className="py-32 px-6">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-bold mb-6 text-center"
+            >
+              Let's Build Something Great
+            </motion.h2>
+
+            <motion.div
+              variants={fadeInUp}
+              className="h-1 w-24 bg-gradient-to-r from-accent-blue to-accent-purple mb-12 mx-auto"
+            />
+
+            <motion.p
+              variants={fadeInUp}
+              className="text-xl text-gray-400 mb-16 text-center max-w-2xl mx-auto"
+            >
+              I'm currently open to new opportunities. Whether you have a
+              project in mind or just want to connect, I'd love to hear from
+              you.
+            </motion.p>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <motion.div variants={fadeInUp} className="space-y-6">
+                <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+
+                <div className="space-y-4">
+                  <motion.a
+                    href="mailto:sankerprotus04@gmail.com"
+                    whileHover={{ x: 10 }}
+                    className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all group"
+                  >
+                    <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
+                      <Mail className="w-6 h-6 text-accent-blue" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white group-hover:text-accent-blue transition-colors">
+                        Email
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        sankerprotus04@gmail.com
+                      </p>
+                    </div>
+                  </motion.a>
+
+                  <motion.a
+                    href="https://github.com/SankerProtus"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 10 }}
+                    className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all group"
+                  >
+                    <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
+                      <Github className="w-6 h-6 text-accent-blue" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white group-hover:text-accent-blue transition-colors">
+                        GitHub
+                      </p>
+                      <p className="text-gray-400 text-sm">@SankerProtus</p>
+                    </div>
+                  </motion.a>
+
+                  <motion.a
+                    href="https://www.linkedin.com/in/sankerprotus-mwinwieme"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 10 }}
+                    className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all group"
+                  >
+                    <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
+                      <Linkedin className="w-6 h-6 text-accent-blue" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white group-hover:text-accent-blue transition-colors">
+                        LinkedIn
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        Sanker Protus Mwinwieme
+                      </p>
+                    </div>
+                  </motion.a>
+                </div>
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2 text-gray-300"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      required
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue transition-all text-white"
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2 text-gray-300"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue transition-all text-white"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2 text-gray-300"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      required
+                      rows="5"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue transition-all text-white resize-none"
+                      placeholder="Tell me about your project..."
+                    />
+                  </div>
+
+                  <motion.button
+                    type="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full px-6 py-4 bg-gradient-to-r from-accent-blue to-accent-purple rounded-lg font-semibold text-white shadow-glow-md hover:shadow-glow-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    {formStatus === "success" ? (
+                      <>
+                        <CheckCircle className="w-5 h-5" />
+                        Message Sent!
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Send Message
+                      </>
+                    )}
+                  </motion.button>
+                </form>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-white/10 bg-dark-900">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-gray-400 text-sm">
+              © 2025 Sanker Mwinwieme Protus. All rights reserved.
+            </p>
+
+            <div className="flex gap-6">
+              <a
+                href="https://github.com/SankerProtus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-accent-blue transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/sankerprotus-mwinwieme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-accent-blue transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:sankerprotus04@gmail.com"
+                className="text-gray-400 hover:text-accent-blue transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
