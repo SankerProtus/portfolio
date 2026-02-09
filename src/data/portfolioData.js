@@ -25,9 +25,8 @@ export const projects = [
     tags: ["React", "Node.js", "PostgreSQL", "Chart.js", "Express", "PL/pgSQL"],
     featured: true,
     liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app",
-    githubUrl: "https://github.com/SankerProtus",
-    icon: "💰",
-    image: "/images/project-payflow.jpg", // Add your project screenshot here
+    githubUrl: "https://github.com/SankerProtus/PayFlow-Analytics",
+    // image: "/images/project-payflow.jpg", // Add project screenshot when available
   },
   {
     title: "Personal Budget Tracker",
@@ -40,10 +39,9 @@ export const projects = [
     outcome:
       "Helped 500+ users save an average of $300/month through better visibility",
     tags: ["React", "Chart.js", "LocalStorage", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/SankerProtus",
-    icon: "📊",
-    image: "/images/project-budget.jpg",
+    githubUrl: "https://github.com/SankerProtus/budget-tracker",
+    // liveUrl: "", // Add live URL when deployed
+    // image: "/images/project-budget.jpg", // Add project screenshot when available
   },
   {
     title: "Smart Grocery Expiry Tracker",
@@ -54,10 +52,9 @@ export const projects = [
       "Built a notification system with smart alerts and recipe suggestions",
     outcome: "Users reported 40% reduction in food waste within first month",
     tags: ["React", "Progressive Web App", "Notifications", "Date Logic"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/SankerProtus",
-    icon: "🛒",
-    image: "/images/project-grocery.jpg",
+    githubUrl: "https://github.com/SankerProtus/grocery-tracker",
+    // liveUrl: "", // Add live URL when deployed
+    // image: "/images/project-grocery.jpg", // Add project screenshot when available
   },
   {
     title: "Real-Time Quiz Platform",
@@ -68,10 +65,9 @@ export const projects = [
       "Integrated real-time API with dynamic scoring and progress tracking",
     outcome: "Achieved 85% completion rate vs. industry average of 45%",
     tags: ["React", "REST API", "Real-time Updates"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/SankerProtus",
-    icon: "🎯",
-    image: "/images/project-quiz.jpg",
+    githubUrl: "https://github.com/SankerProtus/quiz-platform",
+    // liveUrl: "", // Add live URL when deployed
+    // image: "/images/project-quiz.jpg", // Add project screenshot when available
   },
   {
     title: "Keeper App",
@@ -81,10 +77,9 @@ export const projects = [
       "Built an intuitive interface with instant save and categorization",
     outcome: "Users create 3x more notes compared to traditional note apps",
     tags: ["React", "State Management", "CRUD"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/SankerProtus",
-    icon: "📝",
-    image: "/images/project-keeper.jpg",
+    githubUrl: "https://github.com/SankerProtus/keeper-app",
+    // liveUrl: "", // Add live URL when deployed
+    // image: "/images/project-keeper.jpg", // Add project screenshot when available
   },
   {
     title: "Modern Education Website",
@@ -96,10 +91,9 @@ export const projects = [
       "Developed responsive website with clean design and intuitive navigation",
     outcome: "Improved student engagement by 60% in first semester",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/SankerProtus",
-    icon: "🎓",
-    image: "/images/project-education.jpg",
+    githubUrl: "https://github.com/SankerProtus/education-website",
+    // liveUrl: "", // Add live URL when deployed
+    // image: "/images/project-education.jpg", // Add project screenshot when available
   },
 ];
 
@@ -193,5 +187,5 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/sankerprotus-mwinwieme",
   location: "Kumasi, Ghana",
   availability: "Open for full-time opportunities",
-  profileImage: "/images/profile.jpg", // Add your profile photo here
+  profileImage: "../../public/images/profile.jpeg",
 };

@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Professional portfolio website for Sanker Mwinwieme Protus - Software Engineer",
   "type": "module",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SankerProtus/sanker-portfolio.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

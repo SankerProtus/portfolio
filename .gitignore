@@ -34,6 +34,12 @@ lerna-debug.log*
 *.sln
 *.sw?
 
+# Backup files
+*.backup
+*.old
+*.bak
+*~
+
 # Vercel
 .vercel
 

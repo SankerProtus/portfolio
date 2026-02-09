@@ -101,11 +101,11 @@ Example:
 <br />React 18.2
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/23153943/188499026-b573e66f-ae38-4ea5-9638-21a7d8e3f74c.png" width="48" height="48" alt="Framer Motion" />
+<img src="https://www.svgrepo.com/show/354113/framer.svg" width="48" height="48" alt="Framer Motion" />
 <br />Framer Motion 12
 </td>
 <td align="center" width="25%">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="48" height="48" alt="Tailwind CSS" />
+<img src="https://www.svgrepo.com/show/374118/tailwind.svg" width="48" height="48" alt="Tailwind CSS" />
 <br />Tailwind CSS 3.4
 </td>
 <td align="center" width="25%">
