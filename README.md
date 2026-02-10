@@ -12,7 +12,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
-[View Live Demo](#) • [Report Bug](../../issues) • [Request Feature](../../issues)
+[View Live Demo](https://portfolio-lilac-phi-myl8wfbvev.vercel.app
+) • [Report Bug](../../issues) • [Request Feature](../../issues)
 
 </div>
 
@@ -52,9 +53,6 @@ A modern portfolio website featuring advanced animations, dark-mode-first design
 
 ### 📸 Preview
 
-> Add screenshots of your portfolio here once deployed!
-
-Example:
 ![Portfolio Homepage](public/screenshots/home.png)
 ![Projects Section](public/screenshots/projects.png)
 
