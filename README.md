@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🚀 Sanker Mwinwieme Protus - Premium Portfolio
+# 🚀 Sanker Mwinwieme Protus - Portfolio
 
-### A production-ready, premium portfolio website built with modern web technologies
+### A portfolio website built with modern web technologies
 
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
@@ -54,11 +54,9 @@ A modern portfolio website featuring advanced animations, dark-mode-first design
 
 > Add screenshots of your portfolio here once deployed!
 
-
 Example:
-![Portfolio Homepage](screenshots/home.png)
-![Projects Section](screenshots/projects.png)
-
+![Portfolio Homepage](public/screenshots/home.png)
+![Projects Section](public/screenshots/projects.png)
 
 ---
 
