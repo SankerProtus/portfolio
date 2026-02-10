@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Wrench } from "lucide-react";
 import Section from "./Section";
 
 const staggerContainer = {
@@ -63,7 +62,7 @@ export default function Skills({ skills }) {
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {Object.values(skills).map((category, index) => {
+            {Object.values(skills).map((category) => {
               const IconComponent = category.icon;
               return (
                 <motion.div

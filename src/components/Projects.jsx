@@ -53,7 +53,7 @@ export default function Projects({ projects }) {
             measurable impact
           </motion.p>
 
-          {/* Grid Layout - 3 columns */}
+          {/* Grid Layout */}
           <motion.div
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

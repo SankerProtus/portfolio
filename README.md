@@ -54,11 +54,11 @@ A modern portfolio website featuring advanced animations, dark-mode-first design
 
 > Add screenshots of your portfolio here once deployed!
 
-<!--
+
 Example:
 ![Portfolio Homepage](screenshots/home.png)
 ![Projects Section](screenshots/projects.png)
--->
+
 
 ---
 

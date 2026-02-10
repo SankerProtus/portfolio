@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
-
-// Import modular components
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -11,8 +9,6 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-
-// Import data
 import { navItems, projects, skills, experience } from "./data/portfolioData";
 
 export default function Portfolio() {
@@ -67,7 +63,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative min-h-screen bg-dark-900 text-gray-100">
+    <div className="relative min-h-screen text-gray-100">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan z-50 origin-left"
@@ -75,9 +71,12 @@ export default function Portfolio() {
       />
 
       {/* Background Gradient */}
-      <div className="fixed inset-0 bg-mesh-gradient -z-10" />
-
-      {/* Navigation */}
+      <div
+        className="fixed inset-0 -z-10"
+        style={{
+          background: "linear-gradient(135deg, #0a0e27 0%, #070920 100%)",
+        }}
+      />
       <Navigation
         scrolled={scrolled}
         isMenuOpen={isMenuOpen}
@@ -86,32 +85,16 @@ export default function Portfolio() {
         navItems={navItems}
         scrollToSection={scrollToSection}
       />
-
-      {/* Hero Section */}
       <Hero scrollToSection={scrollToSection} />
-
-      {/* About Section */}
       <About />
-
-      {/* Skills Section */}
       <Skills skills={skills} />
-
-      {/* Projects Section - Now with Grid Layout */}
       <Projects projects={projects} />
-
-      {/* Experience Section */}
       <Experience experience={experience} />
-
-      {/* Contact Section */}
       <Contact
         handleContactSubmit={handleContactSubmit}
         formStatus={formStatus}
       />
-
-      {/* Footer */}
       <Footer />
-
-      {/* Scroll to Top Button */}
       <ScrollToTop />
     </div>
   );

@@ -25,61 +25,8 @@ export const projects = [
     tags: ["React", "Node.js", "PostgreSQL", "Chart.js", "Express", "PL/pgSQL"],
     featured: true,
     liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app",
-    githubUrl: "https://github.com/SankerProtus/PayFlow-Analytics",
-    // image: "/images/project-payflow.jpg", // Add project screenshot when available
-  },
-  {
-    title: "Personal Budget Tracker",
-    description:
-      "Full-featured budgeting application with intelligent expense categorization",
-    problem:
-      "Users need intuitive tools to track spending and achieve financial goals",
-    solution:
-      "Created an interactive dashboard with real-time insights and goal tracking",
-    outcome:
-      "Helped 500+ users save an average of $300/month through better visibility",
-    tags: ["React", "Chart.js", "LocalStorage", "Tailwind"],
-    githubUrl: "https://github.com/SankerProtus/budget-tracker",
-    // liveUrl: "", // Add live URL when deployed
-    // image: "/images/project-budget.jpg", // Add project screenshot when available
-  },
-  {
-    title: "Smart Grocery Expiry Tracker",
-    description:
-      "Intelligent food waste reduction app with proactive notifications",
-    problem: "Households waste 30% of groceries due to forgotten expiry dates",
-    solution:
-      "Built a notification system with smart alerts and recipe suggestions",
-    outcome: "Users reported 40% reduction in food waste within first month",
-    tags: ["React", "Progressive Web App", "Notifications", "Date Logic"],
-    githubUrl: "https://github.com/SankerProtus/grocery-tracker",
-    // liveUrl: "", // Add live URL when deployed
-    // image: "/images/project-grocery.jpg", // Add project screenshot when available
-  },
-  {
-    title: "Real-Time Quiz Platform",
-    description:
-      "Interactive trivia platform with live leaderboards and instant feedback",
-    problem: "Static quiz apps lack engagement and competitive elements",
-    solution:
-      "Integrated real-time API with dynamic scoring and progress tracking",
-    outcome: "Achieved 85% completion rate vs. industry average of 45%",
-    tags: ["React", "REST API", "Real-time Updates"],
-    githubUrl: "https://github.com/SankerProtus/quiz-platform",
-    // liveUrl: "", // Add live URL when deployed
-    // image: "/images/project-quiz.jpg", // Add project screenshot when available
-  },
-  {
-    title: "Keeper App",
-    description: "Note-taking app inspired by Google Keep with real-time sync",
-    problem: "Users need a simple way to capture and organize thoughts quickly",
-    solution:
-      "Built an intuitive interface with instant save and categorization",
-    outcome: "Users create 3x more notes compared to traditional note apps",
-    tags: ["React", "State Management", "CRUD"],
-    githubUrl: "https://github.com/SankerProtus/keeper-app",
-    // liveUrl: "", // Add live URL when deployed
-    // image: "/images/project-keeper.jpg", // Add project screenshot when available
+    githubUrl: "https://payflow-analytics-ochre.vercel.app/",
+    image: "/screenshots/project-payflow.png",
   },
   {
     title: "Modern Education Website",
@@ -92,8 +39,33 @@ export const projects = [
     outcome: "Improved student engagement by 60% in first semester",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
     githubUrl: "https://github.com/SankerProtus/education-website",
-    // liveUrl: "", // Add live URL when deployed
-    // image: "/images/project-education.jpg", // Add project screenshot when available
+    liveUrl: "https://education-website-pearl.vercel.app/",
+    image: "/screenshots/project-education.png",
+  },
+  {
+    title: "Keeper App",
+    description: "Note-taking app inspired by Google Keep with real-time sync",
+    problem: "Users need a simple way to capture and organize thoughts quickly",
+    solution:
+      "Built an intuitive interface with instant save and categorization",
+    outcome: "Users create 3x more notes compared to traditional note apps",
+    tags: ["React", "State Management", "CRUD"],
+    githubUrl: "https://github.com/SankerProtus/keeper-app",
+    liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app",
+    image: "/screenshots/project-keeper.png",
+  },
+  {
+    title: "Real-Time Quiz Platform",
+    description:
+      "Interactive trivia platform with live leaderboards and instant feedback",
+    problem: "Static quiz apps lack engagement and competitive elements",
+    solution:
+      "Integrated real-time API with dynamic scoring and progress tracking",
+    outcome: "Achieved 85% completion rate vs. industry average of 45%",
+    tags: ["React", "REST API", "Real-time Updates"],
+    githubUrl: "https://github.com/SankerProtus/quiz-platform",
+    liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app", 
+    image: "/screenshots/project-quiz.png",
   },
 ];
 

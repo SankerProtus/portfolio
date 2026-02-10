@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -60,19 +60,34 @@ export default function ProjectCard({ project }) {
           ))}
         </div>
 
-        {/* View Project Button - Right Aligned */}
-        <div className="flex justify-end">
-          <motion.a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-accent-blue hover:bg-accent-blue/90 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-accent-blue/20 hover:shadow-xl hover:shadow-accent-blue/30 text-sm"
-          >
-            View Project
-            <ExternalLink className="w-4 h-4" />
-          </motion.a>
+        {/* Buttons */}
+        <div className="flex gap-3">
+          {project.liveUrl && (
+            <motion.a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-accent-blue hover:bg-accent-blue/90 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-accent-blue/20 hover:shadow-xl hover:shadow-accent-blue/30 text-sm flex-1 justify-center"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View Live
+            </motion.a>
+          )}
+          {project.githubUrl && (
+            <motion.a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-gray-700/20 hover:shadow-xl hover:shadow-gray-600/30 text-sm flex-1 justify-center"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
+            </motion.a>
+          )}
         </div>
       </div>
     </motion.div>

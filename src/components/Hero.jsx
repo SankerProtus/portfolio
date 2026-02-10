@@ -6,9 +6,72 @@ export default function Hero({ scrollToSection }) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 pt-20"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto text-center">
+      {/* Animated Background */}
+      <div className="absolute inset-0 animate-float-rotate">
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            {/* Radial Gradient for Circle 1 */}
+            <radialGradient id="glow1" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.1" />
+              <stop offset="50%" stopColor="#60A5FA" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
+            </radialGradient>
+
+            {/* Radial Gradient for Circle 2 */}
+            <radialGradient id="glow2" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#A78BFA" stopOpacity="0.1" />
+              <stop offset="50%" stopColor="#A78BFA" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
+            </radialGradient>
+
+            {/* Radial Gradient for Circle 3 */}
+            <radialGradient id="glow3" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#22D3EE" stopOpacity="0.1" />
+              <stop offset="50%" stopColor="#22D3EE" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#22D3EE" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+
+          {/* Circle 1 - Pulsing 50 to 150 over 8 seconds */}
+          <circle cx="300" cy="200" r="50" fill="url(#glow1)">
+            <animate
+              attributeName="r"
+              values="50;150;50"
+              dur="8s"
+              repeatCount="indefinite"
+            />
+          </circle>
+
+          {/* Circle 2 - Pulsing 40 to 120 over 6 seconds */}
+          <circle cx="800" cy="500" r="40" fill="url(#glow2)">
+            <animate
+              attributeName="r"
+              values="40;120;40"
+              dur="6s"
+              repeatCount="indefinite"
+            />
+          </circle>
+
+          {/* Circle 3 - Pulsing 60 to 180 over 10 seconds */}
+          <circle cx="1000" cy="150" r="60" fill="url(#glow3)">
+            <animate
+              attributeName="r"
+              values="60;180;60"
+              dur="10s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </svg>
+      </div>
+
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
