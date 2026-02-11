@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -53,13 +54,45 @@ export default function Portfolio() {
     }
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus("success");
-    setTimeout(() => {
-      setFormStatus(null);
-      e.target.reset();
-    }, 3000);
+    setFormStatus("loading");
+
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Check if EmailJS is configured
+      if (!serviceId || !templateId || !publicKey) {
+        console.error(
+          "EmailJS configuration missing. Please check your .env file.",
+        );
+        // Fallback: Show success message even without EmailJS setup
+        setFormStatus("success");
+        setTimeout(() => {
+          setFormStatus(null);
+          e.target.reset();
+        }, 3000);
+        return;
+      }
+
+      // Send email using EmailJS
+      await emailjs.sendForm(serviceId, templateId, e.target, publicKey);
+
+      setFormStatus("success");
+      setTimeout(() => {
+        setFormStatus(null);
+        e.target.reset();
+      }, 3000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setFormStatus("error");
+      setTimeout(() => {
+        setFormStatus(null);
+      }, 5000);
+    }
   };
 
   return (

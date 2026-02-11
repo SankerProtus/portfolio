@@ -128,6 +128,7 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                   <input
                     type="text"
                     id="name"
+                    name="user_name"
                     required
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue transition-all text-white"
                     placeholder="Your name"
@@ -144,6 +145,7 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                   <input
                     type="email"
                     id="email"
+                    name="user_email"
                     required
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue transition-all text-white"
                     placeholder="your.email@example.com"
@@ -159,6 +161,7 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows="5"
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue transition-all text-white resize-none"
@@ -168,14 +171,25 @@ export default function Contact({ handleContactSubmit, formStatus }) {
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-6 py-4 bg-gradient-to-r from-accent-blue to-accent-purple rounded-lg font-semibold text-white shadow-glow-md hover:shadow-glow-lg transition-all flex items-center justify-center gap-2"
+                  disabled={formStatus === "loading"}
+                  whileHover={{ scale: formStatus === "loading" ? 1 : 1.02 }}
+                  whileTap={{ scale: formStatus === "loading" ? 1 : 0.98 }}
+                  className="w-full px-6 py-4 bg-gradient-to-r from-accent-blue to-accent-purple rounded-lg font-semibold text-white shadow-glow-md hover:shadow-glow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {formStatus === "success" ? (
+                  {formStatus === "loading" ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : formStatus === "success" ? (
                     <>
                       <CheckCircle className="w-5 h-5" />
                       Message Sent!
+                    </>
+                  ) : formStatus === "error" ? (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Try Again
                     </>
                   ) : (
                     <>
@@ -184,6 +198,11 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                     </>
                   )}
                 </motion.button>
+                {formStatus === "error" && (
+                  <p className="text-red-400 text-sm text-center">
+                    Failed to send message. Please try again or email directly.
+                  </p>
+                )}
               </form>
             </motion.div>
           </div>

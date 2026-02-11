@@ -24,8 +24,8 @@ export const projects = [
       "Enabled data-driven decisions reducing churn by 23% for pilot users",
     tags: ["React", "Node.js", "PostgreSQL", "Chart.js", "Express", "PL/pgSQL"],
     featured: true,
-    liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app",
-    githubUrl: "https://payflow-analytics-ochre.vercel.app/",
+    liveUrl: "https://payflow-analytics-ochre.vercel.app/",
+    githubUrl: "https://github.com/SankerProtus/payflow_analytics",
     image: "/screenshots/project-payflow.png",
   },
   {
@@ -43,30 +43,20 @@ export const projects = [
     image: "/screenshots/project-education.png",
   },
   {
-    title: "Keeper App",
-    description: "Note-taking app inspired by Google Keep with real-time sync",
-    problem: "Users need a simple way to capture and organize thoughts quickly",
-    solution:
-      "Built an intuitive interface with instant save and categorization",
-    outcome: "Users create 3x more notes compared to traditional note apps",
-    tags: ["React", "State Management", "CRUD"],
-    githubUrl: "https://github.com/SankerProtus/keeper-app",
-    liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app",
-    image: "/screenshots/project-keeper.png",
-  },
-  {
-    title: "Real-Time Quiz Platform",
+    title: "IP Address Tracker",
     description:
-      "Interactive trivia platform with live leaderboards and instant feedback",
-    problem: "Static quiz apps lack engagement and competitive elements",
+      "Interactive IP Address Tracker that allows users to search for any IP address and view its geolocation information",
+    problem:
+      "Users need a quick way to identify IP address locations and ISP information for security and analytics purposes",
     solution:
-      "Integrated real-time API with dynamic scoring and progress tracking",
-    outcome: "Achieved 85% completion rate vs. industry average of 45%",
-    tags: ["React", "REST API", "Real-time Updates"],
-    githubUrl: "https://github.com/SankerProtus/quiz-platform",
-    liveUrl: "https://pay-flow-77d6yeedt-sanker-protus-projects.vercel.app", 
-    image: "/screenshots/project-quiz.png",
-  },
+      "Built an intuitive interface with real-time IP lookup displaying location details, timezone, ISP, and interactive Leaflet maps",
+    outcome:
+      "Provides instant geolocation insights with precise map visualization for any IP address worldwide",
+    tags: ["React", "Vite", "Leaflet.js", "Geolocation API", "Responsive"],
+    githubUrl: "https://github.com/SankerProtus/ip_address_tracker",
+    liveUrl: "https://ip-address-tracker-sooty-five.vercel.app/",
+    image: "/screenshots/project-iptracker.png",
+  }
 ];
 
 // Skills Data
