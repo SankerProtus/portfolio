@@ -91,6 +91,7 @@ export const projects = [
       "Created an educational tool with reusable question components, percentage-based scoring, and detailed answer review functionality",
     tags: ["React", "Vite", "CSS3", "Component State", "Responsive"],
     githubUrl: "https://github.com/SankerProtus/quiz-app",
+    liveUrl: "https://quiz-app-olive-two-39.vercel.app/",
     image: "/screenshots/project-quiz.png",
   },
 ];
