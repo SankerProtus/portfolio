@@ -56,7 +56,43 @@ export const projects = [
     githubUrl: "https://github.com/SankerProtus/ip_address_tracker",
     liveUrl: "https://ip-address-tracker-sooty-five.vercel.app/",
     image: "/screenshots/project-iptracker.png",
-  }
+  },
+  {
+    title: "Keeper App",
+    description:
+      "Full-stack note-taking application inspired by Google Keep with CRUD operations and auto-save functionality",
+    problem:
+      "Users need a simple, intuitive way to create and manage quick notes without complex interfaces",
+    solution:
+      "Built a React-based note-taking app with Express REST API and PostgreSQL backend for persistent storage with Material-UI components",
+    outcome:
+      "Delivered a responsive note management system with create, edit, delete features and auto-collapse functionality for improved UX",
+    tags: [
+      "React",
+      "Express.js",
+      "PostgreSQL",
+      "Material-UI",
+      "Vite",
+      "REST API",
+    ],
+    githubUrl: "https://github.com/SankerProtus/keeper-app",
+    liveUrl: "https://keeper-app-eta-ten.vercel.app/",
+    image: "/screenshots/project-keeper.png",
+  },
+  {
+    title: "Quiz App",
+    description:
+      "Interactive quiz application with multiple-choice questions, real-time scoring, and instant feedback",
+    problem:
+      "Users need an engaging platform to test knowledge across various topics with immediate results",
+    solution:
+      "Built a React quiz app with component state management, dynamic question flow, and comprehensive score calculation with answer review",
+    outcome:
+      "Created an educational tool with reusable question components, percentage-based scoring, and detailed answer review functionality",
+    tags: ["React", "Vite", "CSS3", "Component State", "Responsive"],
+    githubUrl: "https://github.com/SankerProtus/quiz-app",
+    image: "/screenshots/project-quiz.png",
+  },
 ];
 
 // Skills Data

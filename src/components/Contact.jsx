@@ -61,7 +61,9 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                 <motion.a
                   href="mailto:sankerprotus04@gmail.com"
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all group"
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-colors group"
+                  style={{ display: "flex" }}
                 >
                   <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
                     <Mail className="w-6 h-6 text-accent-blue" />
@@ -81,7 +83,9 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all group"
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-colors group"
+                  style={{ display: "flex" }}
                 >
                   <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
                     <Github className="w-6 h-6 text-accent-blue" />
@@ -99,7 +103,9 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all group"
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-colors group"
+                  style={{ display: "flex" }}
                 >
                   <div className="p-3 bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 rounded-lg">
                     <Linkedin className="w-6 h-6 text-accent-blue" />
