@@ -24,7 +24,7 @@ export const projects = [
       "Enabled data-driven decisions reducing churn by 23% for pilot users",
     tags: ["React", "Node.js", "PostgreSQL", "Chart.js", "Express", "PL/pgSQL"],
     featured: true,
-    liveUrl: "https://payflow-analytics-ochre.vercel.app/",
+    liveUrl: "https://payflow-analytics-v1.vercel.app/",
     githubUrl: "https://github.com/SankerProtus/payflow_analytics",
     image: "/screenshots/project-payflow.png",
   },
@@ -39,7 +39,7 @@ export const projects = [
     outcome: "Improved student engagement by 60% in first semester",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
     githubUrl: "https://github.com/SankerProtus/education-website",
-    liveUrl: "https://education-website-pearl.vercel.app/",
+    liveUrl: "https://education-website-v1.vercel.app/",
     image: "/screenshots/project-education.png",
   },
   {
@@ -54,7 +54,7 @@ export const projects = [
       "Provides instant geolocation insights with precise map visualization for any IP address worldwide",
     tags: ["React", "Vite", "Leaflet.js", "Geolocation API", "Responsive"],
     githubUrl: "https://github.com/SankerProtus/ip_address_tracker",
-    liveUrl: "https://ip-address-tracker-sooty-five.vercel.app/",
+    liveUrl: "https://ip-address-tracker-v1.vercel.app/",
     image: "/screenshots/project-iptracker.png",
   },
   {
@@ -76,7 +76,7 @@ export const projects = [
       "REST API",
     ],
     githubUrl: "https://github.com/SankerProtus/keeper-app",
-    liveUrl: "https://keeper-app-eta-ten.vercel.app/",
+    liveUrl: "https://keeper-note-app-v1.vercel.app/",
     image: "/screenshots/project-keeper.png",
   },
   {
