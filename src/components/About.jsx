@@ -69,7 +69,7 @@ export default function About() {
               </p>
 
               <motion.a
-                href="/cv/cv.pdf"
+                href="/cv/Sanker_Mwinwieme_Protus.pdf"
                 download="Sanker_Protus_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
