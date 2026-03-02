@@ -99,7 +99,7 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                 </motion.a>
 
                 <motion.a
-                  href="https://www.linkedin.com/in/sankerprotus-mwinwieme"
+                  href="http://www.linkedin.com/in/sanker-protus-mwinwieme-45181b25b"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 10 }}
