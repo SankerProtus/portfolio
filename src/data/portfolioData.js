@@ -183,7 +183,7 @@ export const personalInfo = {
   title: "Full-Stack Web Developer",
   email: "sankerprotus04@gmail.com",
   github: "https://github.com/SankerProtus",
-  linkedin: "https://www.linkedin.com/in/sankerprotus-mwinwieme",
+  linkedin: "https://www.linkedin.com/in/sanker-protus-mwinwieme-45181b25b",
   location: "Kumasi, Ghana",
   availability: "Open for full-time opportunities",
   profileImage: "../../public/images/profile.jpeg",
