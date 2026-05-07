@@ -34,7 +34,7 @@ export const projects = [
       "Recharts",
     ],
     githubUrl: "https://github.com/SankerProtus/pos-system",
-    liveUrl: "https://pos-system-bmrf.onrender.com",
+    liveUrl: "https://pos-system-deploy-neon.vercel.app/",
     image: "/screenshots/project-pos.png",
   },
   {
