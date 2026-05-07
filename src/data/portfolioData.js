@@ -33,7 +33,7 @@ export const projects = [
       "Zustand",
       "Recharts",
     ],
-    githubUrl: "https://github.com/SankerProtus/pos-system",
+    githubUrl: "https://github.com/SankerProtus/pos_system",
     liveUrl: "https://pos-system-deploy-neon.vercel.app/",
     image: "/screenshots/project-pos.png",
   },
