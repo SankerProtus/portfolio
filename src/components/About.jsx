@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Download, Award, Mail, Github, Linkedin } from "lucide-react";
 import Section from "./Section";
+import { personalInfo } from "../data/portfolioData";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -69,7 +70,7 @@ export default function About() {
               </p>
 
               <motion.a
-                href="/cv/Sanker_Mwinwieme_Protus.pdf"
+                href="./cv/Sanker_Mwinwieme_Protus_CV.pdf"
                 download="Sanker_Protus_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -130,7 +131,7 @@ export default function About() {
 
               <div className="flex gap-4">
                 <motion.a
-                  href="https://github.com/SankerProtus"
+                  href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -140,7 +141,7 @@ export default function About() {
                 </motion.a>
 
                 <motion.a
-                  href="https://www.linkedin.com/in/sankerprotus-mwinwieme"
+                  href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -150,7 +151,7 @@ export default function About() {
                 </motion.a>
 
                 <motion.a
-                  href="mailto:sankerprotus04@gmail.com"
+                  href={`mailto:${personalInfo.email}`}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="flex items-center justify-center w-12 h-12 glass-effect rounded-lg hover:bg-white/10 transition-all"
                 >
