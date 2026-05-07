@@ -13,6 +13,31 @@ export const navItems = [
 // Projects Data
 export const projects = [
   {
+    title: "POS System",
+    description:
+      "Comprehensive Point of Sale (POS) system with inventory management, sales tracking, and reporting features",
+    problem:
+      "Retail businesses need an efficient system to manage sales transactions, track inventory, and generate reports for decision-making",
+    solution:
+      "Full-stack POS application with a user-friendly React UI, real-time inventory updates, and comprehensive reporting (backend: Node.js/Express, Prisma + PostgreSQL)",
+    outcome:
+      "Streamlined sales processes and improved inventory accuracy (internal measurement)",
+    tags: [
+      "React",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+      "Vite",
+      "Zustand",
+      "Recharts",
+    ],
+    githubUrl: "https://github.com/SankerProtus/pos-system",
+    liveUrl: "https://pos-system-bmrf.onrender.com",
+    image: "/screenshots/project-pos.png",
+  },
+  {
     title: "PayFlow Analytics Dashboard",
     description:
       "Enterprise-grade SaaS analytics platform processing millions of subscription events monthly",
@@ -27,20 +52,6 @@ export const projects = [
     liveUrl: "https://payflow-analytics-v1.vercel.app/",
     githubUrl: "https://github.com/SankerProtus/payflow_analytics",
     image: "/screenshots/project-payflow.png",
-  },
-  {
-    title: "Modern Education Website",
-    description:
-      "Responsive multi-page education platform with course management",
-    problem:
-      "Educational institutions need modern web presence for student engagement",
-    solution:
-      "Developed responsive website with clean design and intuitive navigation",
-    outcome: "Improved student engagement by 60% in first semester",
-    tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-    githubUrl: "https://github.com/SankerProtus/education-website",
-    liveUrl: "https://education-website-v1.vercel.app/",
-    image: "/screenshots/project-education.png",
   },
   {
     title: "IP Address Tracker",
@@ -58,41 +69,18 @@ export const projects = [
     image: "/screenshots/project-iptracker.png",
   },
   {
-    title: "Keeper App",
+    title: "Modern Education Website",
     description:
-      "Full-stack note-taking application inspired by Google Keep with CRUD operations and auto-save functionality",
+      "Responsive multi-page education platform with course management",
     problem:
-      "Users need a simple, intuitive way to create and manage quick notes without complex interfaces",
+      "Educational institutions need modern web presence for student engagement",
     solution:
-      "Built a React-based note-taking app with Express REST API and PostgreSQL backend for persistent storage with Material-UI components",
-    outcome:
-      "Delivered a responsive note management system with create, edit, delete features and auto-collapse functionality for improved UX",
-    tags: [
-      "React",
-      "Express.js",
-      "PostgreSQL",
-      "Material-UI",
-      "Vite",
-      "REST API",
-    ],
-    githubUrl: "https://github.com/SankerProtus/keeper-app",
-    liveUrl: "https://keeper-note-app-v1.vercel.app/",
-    image: "/screenshots/project-keeper.png",
-  },
-  {
-    title: "Quiz App",
-    description:
-      "Interactive quiz application with multiple-choice questions, real-time scoring, and instant feedback",
-    problem:
-      "Users need an engaging platform to test knowledge across various topics with immediate results",
-    solution:
-      "Built a React quiz app with component state management, dynamic question flow, and comprehensive score calculation with answer review",
-    outcome:
-      "Created an educational tool with reusable question components, percentage-based scoring, and detailed answer review functionality",
-    tags: ["React", "Vite", "CSS3", "Component State", "Responsive"],
-    githubUrl: "https://github.com/SankerProtus/quiz-app",
-    liveUrl: "https://quiz-app-olive-two-39.vercel.app/",
-    image: "/screenshots/project-quiz.png",
+      "Developed responsive website with clean design and intuitive navigation",
+    outcome: "Improved student engagement by 60% in first semester",
+    tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
+    githubUrl: "https://github.com/SankerProtus/education-website",
+    liveUrl: "https://education-website-v1.vercel.app/",
+    image: "/screenshots/project-education.png",
   },
 ];
 
