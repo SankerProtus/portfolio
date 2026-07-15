@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Send, CheckCircle } from "lucide-react";
 import Section from "./Section";
+import { personalInfo } from "../data/portfolioData";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -59,7 +60,7 @@ export default function Contact({ handleContactSubmit, formStatus }) {
 
               <div className="space-y-4">
                 <motion.a
-                  href="mailto:sankerprotus04@gmail.com"
+                  href={`mailto:${personalInfo.email}`}
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-colors group"
@@ -73,13 +74,13 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                       Email
                     </p>
                     <p className="text-gray-400 text-sm">
-                      sankerprotus04@gmail.com
+                      {personalInfo.email}
                     </p>
                   </div>
                 </motion.a>
 
                 <motion.a
-                  href="https://github.com/SankerProtus"
+                  href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 10 }}
@@ -99,7 +100,7 @@ export default function Contact({ handleContactSubmit, formStatus }) {
                 </motion.a>
 
                 <motion.a
-                  href="http://www.linkedin.com/in/sanker-protus-mwinwieme-45181b25b"
+                  href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 10 }}

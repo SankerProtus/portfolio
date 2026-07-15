@@ -1,5 +1,6 @@
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { personalInfo } from "../data/portfolioData";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
 
           <div className="flex gap-6">
             <a
-              href="https://github.com/SankerProtus"
+              href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-accent-blue transition-colors"
@@ -20,7 +21,7 @@ export default function Footer() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/sankerprotus-mwinwieme"
+              href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-accent-blue transition-colors"
@@ -28,7 +29,7 @@ export default function Footer() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:sankerprotus04@gmail.com"
+              href={`mailto:${personalInfo.email}`}
               className="text-gray-400 hover:text-accent-blue transition-colors"
             >
               <Mail className="w-5 h-5" />
