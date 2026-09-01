@@ -127,15 +127,15 @@ export const skills = {
 // Experience Data
 export const experience = [
   {
-    role: "Public Relations Officer",
+    role: "Financial Secretary",
     organization: "Nandom Students' Union (KNUST Chapter)",
-    period: "2024 – Present",
+    period: "8 Aug 2026 – Present",
     type: "leadership",
     description:
-      "Leading digital communication strategy and stakeholder engagement for 200+ member organization",
+      "Re-elected on 8 August 2026 after a formal handover from the previous PRO role; responsible for financial stewardship, records management, and member dues oversight for 200+ members.",
     achievements: [
-      "Increased social media engagement by 150% through strategic content planning",
-      "Coordinated 5+ major events with 100% on-time delivery",
+      "Maintain transparent financial reporting and dues tracking for the union",
+      "Support budgeting and procurement planning for major student activities",
     ],
   },
   {
